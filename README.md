@@ -4,6 +4,8 @@ Convert an number / integer to the equivalent word in the german language.
 
 This Package is inspired by https://github.com/salmanm/num-words and extends the idea for the german language.
 
+Note: This package currently only supports numbers not larger than 6 digits. Support for larger once will be added soon
+
 # Install
 
 ```js
