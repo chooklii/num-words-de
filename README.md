@@ -28,6 +28,10 @@ npm i num-words-de
 ```js
 const numToWord = require('num-words-de')
 
+or
+
+import {numToWord} from "num-words-de"
+
 const convertedNumber = numToWord(1)
 ```
 
