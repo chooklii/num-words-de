@@ -1,5 +1,5 @@
 {
-  "name": "@chooklii/num-words-de",
+  "name": "num-words-de",
   "version": "0.0.1",
   "description": "Convert Num/Int to equivalent String in German Language",
   "main": "index.js",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chooklii/num-words-de.git"
+    "url": "https://github.com/chooklii/num-words-de.git"
   },
   "author": "Chooklii",
   "license": "MIT",
