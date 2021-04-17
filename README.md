@@ -24,7 +24,7 @@ npm i num-words-de
 # Usage
 
 ```js
-const numWords = require('num-words-de')
+const numToWord = require('num-words-de')
 
 const convertedNumber = numToWord(1)
 ```

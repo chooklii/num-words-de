@@ -1,4 +1,4 @@
-const {numWord} = require("./index")
+const {numToWord} = require("./index")
 
 describe("test if package is working", () => {
     test("some data", () => {
