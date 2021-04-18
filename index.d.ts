@@ -1,10 +1,10 @@
-const default_strings_len_one = ["Null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf"]
-const default_strings = ["Null", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"]
-const default_strings_len_two = ["Null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"]
-const single_milliarde = "Milliarde"
-const multiple_milliarde = "Milliarden"
-const single_million = "Million"
-const multiple_million = "Millionen"
+const default_strings_len_one: string[] = ["Null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf"]
+const default_strings: string[] = ["Null", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"]
+const default_strings_len_two: string[] = ["Null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"]
+const single_milliarde: string = "Milliarde"
+const multiple_milliarde: string = "Milliarden"
+const single_million: string = "Million"
+const multiple_million: string = "Millionen"
 
 
 const regex = /^(\d{3})(\d{3})(\d{3})(\d{1})(\d{2})$/
@@ -21,20 +21,21 @@ params: {
 }
 */
 
+interface params {
+    uppercase: Boolean,
+    indefinite_eine: false,
+    indefinite_einer: false,
+    indefinite_eines: false,
+    indefinite_einem: false
+}
+
 const numToWord = (
-    number,
-    params = {}
-) => {
+    number: number,
+    params: params = {}
+): string => {
     const {uppercase, indefinite_eine, indefinite_einem, indefinite_einer, indefinite_eines} = params
     let return_string = ""
-    const int_number = Number(number)
-    // if input is not a string return Error
-    // no Error thrown because displaying the input is better than crashing the whole application
-    if (isNaN(int_number)) {
-        console.error("Input is not a Number")
-        return number
-    }
-    const num_str = int_number.toString()
+    const num_str = number.toString()
     // is string is larger than what is supported return error
     // no Error thrown because displaying the number is better than crashing the whole application
     if (num_str.length > 12) {
@@ -64,7 +65,7 @@ const numToWord = (
 }
 
 // convert some beautis of the german language :)
-const convert_indefinite = (indefinite_eine, indefinite_einer, indefinite_einem, indefinite_eines) => {
+const convert_indefinite = (indefinite_eine: boolean, indefinite_einer: boolean, indefinite_einem: boolean, indefinite_eines: boolean) => {
     if(indefinite_eine) return "eine"
     else if(indefinite_einer) return "einer"
     else if(indefinite_eines) return "eines"
