@@ -1,12 +1,17 @@
 <h1>num-words-de</h1>
 
-Convert an number / integer to the equivalent word in the german language.
+Convert an number to the equivalent word in the german language.
 
 _Zahlen in den das entsprechende Zahlenwort der deutschen Sprache konvertieren_
 
 This Package is inspired by https://github.com/salmanm/num-words and extends the idea for the german language.
 
-Note: This package does not support numbers larger than 12 digits. If a higher number is given it will return the input value.
+Note:
+
+- This package does support typescript
+
+- This package does not support numbers larger than 12 digits. If a higher number is given it will return the input value.
+
 
 # Install
 

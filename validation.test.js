@@ -21,6 +21,7 @@ describe("test if package is working", () => {
         expect(numToWord(44345567000)).toBe("Vierundvierzig Milliarden dreihundertfünfundvierzig Millionen fünfhundertsiebenundsechzigtausend")
         expect(numToWord(1345567000)).toBe("Eine Milliarde dreihundertfünfundvierzig Millionen fünfhundertsiebenundsechzigtausend")
         expect(numToWord(1, {indefinite_eine:true})).toBe("Eine")
+        expect(numToWord(3, {indefinite_eine:true})).toBe("Drei")
         expect(numToWord(1, {indefinite_einer:true})).toBe("Einer")
         expect(numToWord(1, {indefinite_eine:true, uppercase:false})).toBe("eine")
         expect(numToWord(1, {indefinite_eine:true})).toBe("Eine")
