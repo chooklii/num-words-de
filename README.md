@@ -33,7 +33,9 @@ npm i num-words-de
 # Usage
 
 ```js
-const numToWord = require('num-words-de')
+const numToWordsDe = require('num-words-de')
+
+numToWordsDe.numToWord(1) // eins
 
 or
 
