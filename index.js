@@ -1,4 +1,5 @@
-const default_strings_len_one = ["Null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf"]
+const default_strings_len_one = ["Null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf", 
+"dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"]
 const default_strings = ["Null", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"]
 const default_strings_len_two = ["Null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"]
 const single_milliarde = "Milliarde"
@@ -103,7 +104,7 @@ const one_digit_to_string = (number, high_value = false) => {
 const two_digits_to_string = (number) => {
     parsed_number = parseInt(number)
     // if string is smaller than 12 return the value from given list. (11 and 12 are some special cases in german language)
-    if (number <= 12) return default_strings_len_one[parsed_number]
+    if (number <= 19) return default_strings_len_one[parsed_number]
     else {
         str_number = parsed_number.toString()
         digits = str_number.split("").map(Number)
