@@ -54,7 +54,8 @@ The params are taken within a params-object. The object contains following param
     indefinite_eine: false,
     indefinite_einer: false,
     indefinite_eines: false,
-    indefinite_einem: false
+    indefinite_einem: false,
+    indefinite_ein: false
 }
 ```
 
@@ -75,6 +76,8 @@ Due to some special cases with _Indefinitivpronomen_ following cases for the num
 
 `indefinite_einem (default false)` -> If number one should be converted into _einem_
 
+`indefinite_ein (default false)` -> If number one should be converted into _ein_
+
 ```js
 numToWord(1) // Eins
 numToWord(10, {indefinite_eine:true}) // Zehn
@@ -82,7 +85,7 @@ numToWord(1, {indefinite_eine:true}) // Eine
 numToWord(1, {indefinite_einer:true}) // Einer
 numToWord(1, {indefinite_eines:true}) // Eines
 numToWord(1, {indefinite_einem:true}) // Einem
-numToWord(1, {indefinite_einem:true}) // Einem
+numToWord(1, {indefinite_ein:true}) // Ein
 numToWord(1, {indefinite_einem:true, uppercase:false}) // einem
 ```
 

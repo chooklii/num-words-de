@@ -18,7 +18,8 @@ params: {
     indefinite_eine: false,
     indefinite_einer: false,
     indefinite_eines: false,
-    indefinite_einem: false
+    indefinite_einem: false,
+    indefinite_ein: false
 }
 */
 
@@ -26,7 +27,7 @@ const numToWord = (
     number,
     params = {}
 ) => {
-    const {uppercase, indefinite_eine, indefinite_einem, indefinite_einer, indefinite_eines} = params
+    const {uppercase, indefinite_eine, indefinite_einem, indefinite_einer, indefinite_eines, indefinite_ein} = params
     let return_string = ""
     const int_number = Number(number)
     // if input is not a string return Error
@@ -55,8 +56,9 @@ const numToWord = (
         indefinite_eine ||
         indefinite_einer ||
         indefinite_einem ||
+        indefinite_ein ||
         indefinite_eines)) {
-        return_string = convert_indefinite(indefinite_eine, indefinite_einer, indefinite_einem, indefinite_eines)
+        return_string = convert_indefinite(indefinite_eine, indefinite_einer, indefinite_einem, indefinite_eines, indefinite_ein)
         }
     // if value uppercase is set to false return string as it is (lowercase). if not uppercase first char.
     if (uppercase == false) {
@@ -65,11 +67,12 @@ const numToWord = (
 }
 
 // convert some beautis of the german language :)
-const convert_indefinite = (indefinite_eine, indefinite_einer, indefinite_einem, indefinite_eines) => {
+const convert_indefinite = (indefinite_eine, indefinite_einer, indefinite_einem, indefinite_eines, indefinite_ein) => {
     if(indefinite_eine) return "eine"
     else if(indefinite_einer) return "einer"
     else if(indefinite_eines) return "eines"
     else if(indefinite_einem) return "einem"
+    else if(indefinite_ein) return "ein"
 }
 
 // settup the million value
