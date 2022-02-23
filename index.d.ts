@@ -13,5 +13,6 @@ interface NumToWordParams {
     indefinite_eine?: boolean,
     indefinite_einer?: boolean,
     indefinite_eines?: boolean,
-    indefinite_einem?: boolean
+    indefinite_einem?: boolean,
+    indefinite_ein?: boolean
 }
