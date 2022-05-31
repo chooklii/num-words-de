@@ -31,6 +31,8 @@ describe("test if package is working", () => {
         expect(numToWord(1, {indefinite_eine:true})).toBe("Eine")
         expect(numToWord(2, {indefinite_eine:true})).toBe("Zwei")
         expect(numToWord(1, {indefinite_ein:true})).toBe("Ein")
+        expect(numToWord(900000)).toBe("Neunhunderttausend")
+        expect(numToWord(100000)).toBe("Einhunderttausend")
         expect(numToWord(1112345567000)).toBe(1112345567000)
     })
 })

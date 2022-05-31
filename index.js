@@ -123,6 +123,7 @@ const three_digits_to_string = (number) => {
     const [, first, last_two] = str_number.match(three_digit_regex)
     const last_two_str = two_digits_to_string(last_two)
     const first_str = first != 1 ? default_strings_len_one[first] : "ein"
+    if(last_two == "00") return first_str + "hundert"
     return first_str + "hundert" + last_two_str
 }
 
