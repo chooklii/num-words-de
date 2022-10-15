@@ -105,7 +105,7 @@ const one_digit_to_string = (number, high_value = false) => {
 
 // handle the two digits values
 const two_digits_to_string = (number) => {
-    parsed_number = parseInt(number)
+    const parsed_number = parseInt(number)
     // if string is smaller than 12 return the value from given list. (11 and 12 are some special cases in german language)
     if (number <= 19) return default_strings_len_one[parsed_number]
     else {
