@@ -1,6 +1,6 @@
 {
   "name": "num-words-de",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert Num/Int to equivalent String in German Language",
   "main": "index.js",
   "types": "index.d.ts",
