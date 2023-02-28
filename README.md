@@ -8,8 +8,6 @@ This Package is inspired by https://github.com/salmanm/num-words and extends the
 
 Note:
 
-- This package does support typescript
-
 - This package does not support numbers larger than 12 digits. If a higher number is given it will return the input value.
 
 
