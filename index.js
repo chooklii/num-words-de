@@ -109,8 +109,8 @@ const two_digits_to_string = (number) => {
     // if string is smaller than 12 return the value from given list. (11 and 12 are some special cases in german language)
     if (number <= 19) return default_strings_len_one[parsed_number]
     else {
-        str_number = parsed_number.toString()
-        digits = str_number.split("").map(Number)
+        const str_number = parsed_number.toString()
+        const digits = str_number.split("").map(Number)
         if (digits[1] == 0) return default_strings_len_two[digits[0]]
         else if (digits[1] == 1) return "einund" + default_strings_len_two[digits[0]]
         else return default_strings_len_one[digits[1]] + "und" + default_strings_len_two[digits[0]]
