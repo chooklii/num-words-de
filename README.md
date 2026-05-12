@@ -1,96 +1,172 @@
-<h1>num-words-de</h1>
+# num-words-de
 
-Convert an number to the equivalent word in the german language.
+> Convert numbers to German words | Zahlen in deutsche Zahlwörter umwandeln
 
-_Zahlen in den das entsprechende Zahlenwort der deutschen Sprache konvertieren_
+[![npm version](https://img.shields.io/npm/v/num-words-de)](https://www.npmjs.com/package/num-words-de)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This Package is inspired by https://github.com/salmanm/num-words and extends the idea for the german language.
+Inspired by [num-words](https://github.com/salmanm/num-words).
 
-Note:
+- ✅ TypeScript support
+- ✅ Numbers up to 12 digits (billions / Milliarden)
+- ✅ German indefinite article forms (*ein, eine, einer, eines, einem*)
 
-- This package does support typescript
+---
 
-- This package does not support numbers larger than 12 digits. If a higher number is given it will return the input value.
+# 🇬🇧 English
 
+## Description
 
-# Install
+`num-words-de` converts numbers (up to 12 digits) into their German word representation. TypeScript is supported.
 
-```js
+> Numbers with more than 12 digits are returned unchanged.
+
+## Installation
+
+```bash
 npm i num-words-de
 ```
 
-# Example
+## Examples
+
+| Input          | Output                                                   |
+| -------------- | -------------------------------------------------------- |
+| `1`            | Eins                                                     |
+| `10`           | Zehn                                                     |
+| `13`           | Dreizehn                                                 |
+| `1000`         | Eintausend                                               |
+| `22222`        | Zweiundzwanzigtausendzweihundertzweiundzwanzig           |
+| `1345000000`   | Eine Milliarde dreihundertfünfundvierzig Millionen       |
+
+## Usage
 
 ```js
-1 -> Eins
-10 -> Zehn
-13 -> Dreizehn
-1000 -> Eintausend
-12345 -> Zwölftausenddreihundertvierundfünfzig
-1345000000 -> Eine Milliarde dreihundertfünfundvierzig Millionen
+// CommonJS
+const { numToWord } = require('num-words-de');
+numToWord(1); // "Eins"
+
+// ES Module / TypeScript
+import { numToWord } from 'num-words-de';
+numToWord(1); // "Eins"
 ```
 
-# Usage
+## Parameters
+
+`numToWord(number, params?)` – The second argument is an optional object:
+
+| Parameter          | Type      | Default | Description                                                              |
+| ------------------ | --------- | ------- | ------------------------------------------------------------------------ |
+| `uppercase`        | `boolean` | `true`  | Capitalize first letter (`true`) or return lowercase (`false`)           |
+| `indefinite_eine`  | `boolean` | `false` | Return *eine* for the number 1 (feminine nominative/accusative)          |
+| `indefinite_einer` | `boolean` | `false` | Return *einer* for the number 1 (feminine genitive/dative)               |
+| `indefinite_eines` | `boolean` | `false` | Return *eines* for the number 1 (neuter/masculine genitive)              |
+| `indefinite_einem` | `boolean` | `false` | Return *einem* for the number 1 (masculine/neuter dative)                |
+| `indefinite_ein`   | `boolean` | `false` | Return *ein* for the number 1 (neuter nominative/accusative)             |
+
+> The indefinite forms only affect the number **1**. For all other numbers they are ignored.
 
 ```js
-const numToWordsDe = require('num-words-de')
-
-numToWordsDe.numToWord(1) // eins
-
-or
-
-import {numToWord} from "num-words-de"
-
-numToWord(1) // eins
+numToWord(1);                                             // "Eins"
+numToWord(10, { uppercase: false });                      // "zehn"
+numToWord(1, { indefinite_eine: true });                  // "Eine"
+numToWord(1, { indefinite_einer: true });                 // "Einer"
+numToWord(1, { indefinite_eines: true });                 // "Eines"
+numToWord(1, { indefinite_einem: true });                 // "Einem"
+numToWord(1, { indefinite_ein: true });                   // "Ein"
+numToWord(1, { indefinite_einem: true, uppercase: false }); // "einem"
+numToWord(3, { indefinite_eine: true });                  // "Drei"
 ```
 
-# Parameter
+## Error Handling
 
-The params are taken within a params-object. The object contains following parameters
+- Non-numeric input returns the original value and logs `console.error`.
+- Numbers > 12 digits return the original value and logs `console.error`.
 
+No exceptions are thrown – displaying the input is preferred over crashing the application.
+
+## Contributing
+
+Found a bug? Feel free to open an [Issue](https://github.com/chooklii/num-words-de/issues) – please include the input value.
+
+---
+
+# 🇩🇪 Deutsch
+
+## Beschreibung
+
+`num-words-de` wandelt Zahlen (bis zu 12 Stellen) in das entsprechende deutsche Zahlenwort um. TypeScript wird unterstützt.
+
+> Zahlen mit mehr als 12 Stellen werden unverändert als Zahl zurückgegeben.
+
+## Installation
+
+```bash
+npm i num-words-de
 ```
-{
-    uppercase: true,
-    indefinite_eine: false,
-    indefinite_einer: false,
-    indefinite_eines: false,
-    indefinite_einem: false,
-    indefinite_ein: false
-}
-```
 
-`uppercase (default true)` -> If return string is upper or lowercase
+## Beispiele
+
+| Eingabe        | Ausgabe                                                  |
+| -------------- | -------------------------------------------------------- |
+| `1`            | Eins                                                     |
+| `10`           | Zehn                                                     |
+| `13`           | Dreizehn                                                 |
+| `1000`         | Eintausend                                               |
+| `22222`        | Zweiundzwanzigtausendzweihundertzweiundzwanzig           |
+| `1345000000`   | Eine Milliarde dreihundertfünfundvierzig Millionen       |
+
+## Verwendung
 
 ```js
-numToWord(10) // Zehn
-numToWord(10, {uppercase:false}) // zehn
+// CommonJS
+const { numToWord } = require('num-words-de');
+numToWord(1); // "Eins"
+
+// ES Module / TypeScript
+import { numToWord } from 'num-words-de';
+numToWord(1); // "Eins"
 ```
 
-Due to some special cases with _Indefinitivpronomen_ following cases for the number _one_ are supported. If multiple of these values are true they are taken in the bottom order and the first one will be executed.
+## Parameter
 
-`indefinite_eine (default false)` -> If number one should be converted into _eine_
+`numToWord(number, params?)` – Das zweite Argument ist ein optionales Objekt:
 
-`indefinite_einer (default false)` -> If number one should be converted into _einer_
+| Parameter          | Typ       | Standard | Beschreibung                                                    |
+| ------------------ | --------- | -------- | --------------------------------------------------------------- |
+| `uppercase`        | `boolean` | `true`   | Erster Buchstabe groß (`true`) oder alles klein (`false`)       |
+| `indefinite_eine`  | `boolean` | `false`  | Zahl 1 wird zu *eine* (z. B. „eine Katze")                     |
+| `indefinite_einer` | `boolean` | `false`  | Zahl 1 wird zu *einer* (z. B. „einer von vielen")              |
+| `indefinite_eines` | `boolean` | `false`  | Zahl 1 wird zu *eines* (z. B. „eines Tages")                   |
+| `indefinite_einem` | `boolean` | `false`  | Zahl 1 wird zu *einem* (z. B. „mit einem Stück")               |
+| `indefinite_ein`   | `boolean` | `false`  | Zahl 1 wird zu *ein* (z. B. „ein Haus")                        |
 
-`indefinite_eines (default false)` -> If number one should be converted into _eines_
-
-`indefinite_einem (default false)` -> If number one should be converted into _einem_
-
-`indefinite_ein (default false)` -> If number one should be converted into _ein_
+> Die Indefinitformen wirken sich nur auf die Zahl **1** aus. Bei anderen Zahlen werden sie ignoriert.
 
 ```js
-numToWord(1) // Eins
-numToWord(10, {indefinite_eine:true}) // Zehn
-numToWord(1, {indefinite_eine:true}) // Eine
-numToWord(1, {indefinite_einer:true}) // Einer
-numToWord(1, {indefinite_eines:true}) // Eines
-numToWord(1, {indefinite_einem:true}) // Einem
-numToWord(1, {indefinite_ein:true}) // Ein
-numToWord(1, {indefinite_einem:true, uppercase:false}) // einem
+numToWord(1);                                             // "Eins"
+numToWord(10, { uppercase: false });                      // "zehn"
+numToWord(1, { indefinite_eine: true });                  // "Eine"
+numToWord(1, { indefinite_einer: true });                 // "Einer"
+numToWord(1, { indefinite_eines: true });                 // "Eines"
+numToWord(1, { indefinite_einem: true });                 // "Einem"
+numToWord(1, { indefinite_ein: true });                   // "Ein"
+numToWord(1, { indefinite_einem: true, uppercase: false }); // "einem"
+numToWord(3, { indefinite_eine: true });                  // "Drei"
 ```
 
+## Fehlerbehandlung
 
+- Nicht-numerische Eingaben geben den Originalwert zurück und loggen `console.error`.
+- Zahlen > 12 Stellen geben den Originalwert zurück und loggen `console.error`.
 
-# Contributing
+Es werden keine Exceptions geworfen – die Eingabe wird bevorzugt angezeigt, statt die Anwendung abstürzen zu lassen.
 
-If you are able to detect an issue feel free to create an issue. Please add the input value when doing so.
+## Mitwirken
+
+Fehler gefunden? Erstelle gerne ein [Issue](https://github.com/chooklii/num-words-de/issues) – bitte den Eingabewert angeben.
+
+---
+
+## License / Lizenz
+
+[MIT](LICENSE) © Chooklii
